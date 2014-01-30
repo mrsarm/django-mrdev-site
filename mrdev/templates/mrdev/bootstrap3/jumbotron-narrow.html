@@ -1,0 +1,30 @@
+{% extends "mrdev/bootstrap3/base.html" %}
+{% load cms_tags %}
+
+{% block base_head %}
+    <!-- Head resources: script/CSS -->
+    <link href="{{ STATIC_URL }}css/bootstrap3/jumbotron-narrow.css" rel="stylesheet">
+{% endblock %}
+
+{% block base_content %}
+
+        <div class="jumbotron">
+            {% placeholder jumbotron %}
+        </div>
+
+        <div class="row marketing">
+            {% placeholder top %}
+        </div>
+
+        <div class="row marketing">
+            {% block layout %}{% endblock %}
+        </div>
+
+        <div class="row marketing">
+            {% placeholder bottom %}
+        </div>
+{% endblock %}
+
+{% block base_js %}
+        {% placeholder js %}
+{% endblock %}

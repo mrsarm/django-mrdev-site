@@ -1,0 +1,22 @@
+# Ignore configuration files for differents enviroments
+mrdev/settings_*.py
+
+# Ignore site resources and data
+mrdev/static/filer_*
+*.sqlite3
+*.log
+logfile*
+
+# Ignore byte compiled files
+*.py[co]
+
+log
+dist
+build
+*.egg-info
+.directory
+
+# Ignore Eclipse IDE files
+.settings
+.project
+.pydevproject
