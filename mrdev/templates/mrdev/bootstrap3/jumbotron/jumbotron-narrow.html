@@ -1,5 +1,5 @@
 {% extends "mrdev/bootstrap3/base.html" %}
-{% load cms_tags %}
+{% load cms_tags menu_tags %}
 
 {% block base_head %}
     <!-- Head resources: script/CSS -->
@@ -11,7 +11,7 @@
             {% placeholder jumbotron %}
         </div>
 
-        <div class="row marketing">
+        <div class="row marketing row-top">
             {% placeholder top %}
         </div>
 
@@ -19,7 +19,7 @@
             {% block layout %}{% endblock %}
         </div>
 
-        <div class="row marketing">
+        <div class="row marketing row-bottom">
             {% placeholder bottom %}
         </div>
 {% endblock %}
