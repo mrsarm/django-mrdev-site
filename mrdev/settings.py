@@ -212,11 +212,11 @@ TEMPLATE_DIRS = (
 )
 
 CMS_TEMPLATES = (
-    ('mrdev/bootstrap3/jumbotron-narrow-1.html', gettext('Bootstrap3 Jumbotron Narrow')),
-    ('mrdev/bootstrap3/jumbotron-narrow-2.html', gettext('Bootstrap3 Jumbotron Narrow 2 Columns')),
-    ('mrdev/bootstrap3/jumbotron-narrow-2-25-75.html', gettext('Bootstrap3 Jumbotron Narrow 2 Columns (25-75)')),
-    ('mrdev/bootstrap3/jumbotron-narrow-2-75-25.html', gettext('Bootstrap3 Jumbotron Narrow 2 Columns (75-25)')),
-    ('mrdev/bootstrap3/jumbotron-narrow-3.html', gettext('Bootstrap3 Jumbotron Narrow 3 Columns')),
+    ('mrdev/bootstrap3/jumbotron/jumbotron-narrow-1.html', gettext('Bootstrap3 Jumbotron Narrow')),
+    ('mrdev/bootstrap3/jumbotron/jumbotron-narrow-2.html', gettext('Bootstrap3 Jumbotron Narrow 2 Columns')),
+    ('mrdev/bootstrap3/jumbotron/jumbotron-narrow-2-25-75.html', gettext('Bootstrap3 Jumbotron Narrow 2 Columns (25-75)')),
+    ('mrdev/bootstrap3/jumbotron/jumbotron-narrow-2-75-25.html', gettext('Bootstrap3 Jumbotron Narrow 2 Columns (75-25)')),
+    ('mrdev/bootstrap3/jumbotron/jumbotron-narrow-3.html', gettext('Bootstrap3 Jumbotron Narrow 3 Columns')),
 )
 
 CMS_PLACEHOLDER_CONF = {
