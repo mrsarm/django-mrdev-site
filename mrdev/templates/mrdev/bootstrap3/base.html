@@ -2,7 +2,6 @@
 <html>
     <head>
         {% render_block "css" %}
-
 	    <title>{% page_attribute page_title %}</title>
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="{% page_attribute meta_description %}"/>
@@ -13,6 +12,7 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
         {% bootstrap_css %}
+        <script src="{{ STATIC_URL }}js/jquery-1.11.0.js"></script>
         {% bootstrap_javascript %}
         {% block base_head %}{% endblock %}
     </head>
@@ -20,6 +20,7 @@
     <body>
         <div class="container">
 	        {% cms_toolbar %}
+            {% placeholder css %}
 
 	        <div class="header">
 	            <ul class="nav nav-pills pull-right">
@@ -35,9 +36,8 @@
 		    </div>
 
 	        {% render_block "js" %}
-
-	        <script src="{{ STATIC_URL }}js/jquery-1.11.0.js"></script>
 	        {% block base_js %}{% endblock %}
+            {% placeholder js %}
         </div> <!-- /container -->
     </body>
 </html>

@@ -2,10 +2,5 @@
 {% load cms_tags %}
 
 {% block layout %}
-            <div class="col-lg-9">
-                {% placeholder main %}
-            </div>
-            <div class="col-lg-3">
-                {% placeholder sidebar %}
-            </div>
+            {% include "mrdev/bootstrap3/layout/layout-2-75-25.html" %}
 {% endblock %}

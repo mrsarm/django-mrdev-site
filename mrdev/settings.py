@@ -222,8 +222,18 @@ CMS_TEMPLATES = (
 CMS_PLACEHOLDER_CONF = {
     'js': {
         'plugins': ('SnippetPlugin'),
-        'name':gettext("JavaScript"),
+        'name': gettext("JavaScript"),
     },
+    'css': {
+        'plugins': ('SnippetPlugin'),
+        'name': gettext("CSS Style"),
+    },
+    'top':    { 'name': gettext("Top"), },
+    'bottom': { 'name': gettext("Bottom"), },
+    'sidebar': { 'name': gettext("Sidebar"), },
+    'main':   { 'name': gettext("Main"), },
+    'main-2': { 'name': gettext("Main") + " 2", },
+    'main-3': { 'name': gettext("Main") + " 3", },
 }
 
 
