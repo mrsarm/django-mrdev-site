@@ -5,3 +5,10 @@
 .row h1:first-child {
     margin-top: 0px;
 }
+
+.nav-pills > li.selected > a,
+.nav-pills > li.selected > a:hover,
+.nav-pills > li.selected > a:focus {
+  color: #ffffff;
+  background-color: #428bca;
+}
