@@ -1,7 +1,6 @@
 {% load cms_tags sekizai_tags menu_tags bootstrap3 %}<!DOCTYPE html>
 <html>
     <head>
-        {% render_block "css" %}
 	    <title>{% page_attribute page_title %}</title>
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="{% page_attribute meta_description %}"/>
@@ -11,18 +10,16 @@
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
-        {% bootstrap_css %}
-        <link href="{{ STATIC_URL }}css/bootstrap3/base.css" rel="stylesheet">
-        <script src="{{ STATIC_URL }}js/jquery-1.11.0.js"></script>
-        {% bootstrap_javascript %}
-        {% block base_head %}{% endblock %}
+        {% render_block "css" %}<!--  Django CMS CSS -->
+	    {% bootstrap_css %}
+	    <link href="{{ STATIC_URL }}css/bootstrap3/base.css" rel="stylesheet">
+	    {% block base_head %}<!-- Overrited by children templates -->{% endblock %}
     </head>
 
     <body>
-        <div class="container">
-	        {% cms_toolbar %}
-            {% placeholder css %}
-
+        {% cms_toolbar %}
+        <div class="container" id="cont1">
+            {% placeholder css %}<!-- User put SnippetPlugin here -->
 	        <div class="header">
 	            <ul class="nav nav-pills pull-right">
 	                {% show_menu 0 100 0 100 %}
@@ -31,15 +28,19 @@
 	        </div>
 	        {% bootstrap_messages %}
 
-            {% block base_content %}{% endblock %}
+            {% block base_content %}<!-- Overrited by children templates -->{% endblock %}
 
 		    <div class="footer">
 		        <p>&copy; {{ site.name }} 2014</p>
 		    </div>
-
-	        {% render_block "js" %}
-	        {% block base_js %}{% endblock %}
-            {% placeholder js %}
-        </div> <!-- /container -->
+        </div><!-- .container -->
+        {% block jquery %}<script src="{{ STATIC_URL }}js/jquery-1.11.0.min.js"></script>{% endblock jquery %}
+        {% render_block "js" %}<!--  Django CMS JS -->
+        {% block base_js %}<!-- Overrited by children templates -->{% endblock %}
+        <script>
+            $('.text-muted').click(function() { alert('Welcome to ' + $( this ).html()); });
+        </script>
+        {% bootstrap_javascript %}
+        {% placeholder js %}<!-- User put SnippetPlugin here -->
     </body>
 </html>

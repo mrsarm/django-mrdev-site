@@ -87,6 +87,7 @@ INSTALLED_APPS = (
     #'cms.plugins.video',
 
     'bootstrap3',
+    #'cmsplugin_contact',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -245,6 +246,19 @@ CMS_PLACEHOLDER_CONF = {
 SITE_ID=1
 
 CMS_PERMISSION=True
+
+"""
+Email conf
+"""
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'userxxx@gmail.com'
+EMAIL_HOST_PASSWORD = 'passxxx'
+EMAIL_PORT = 587
+EMAIL_FROM = 'No-Reply'
+EMAIL_REPPLY = ''
+
+DEFAULT_FROM_EMAIL = 'No-Reply <userxxx@gmail.com>'
 
 
 # A sample logging configuration. The only tangible logging
