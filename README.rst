@@ -41,4 +41,4 @@ Source Code and License
 
 This sources are available in https://github.com/mrsarm/django-mrdev-site
 
-License (2014) GPL-3 http://www.gnu.org/licenses/agpl.html
+License (2014) AGPL-3 http://www.gnu.org/licenses/agpl.html
