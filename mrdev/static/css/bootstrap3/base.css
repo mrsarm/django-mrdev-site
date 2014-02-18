@@ -12,3 +12,11 @@
   color: #ffffff;
   background-color: #428bca;
 }
+
+.bullet {
+    padding: 0px 10px;
+}
+
+.lang-chooser a {
+    padding-right: 5px;
+}

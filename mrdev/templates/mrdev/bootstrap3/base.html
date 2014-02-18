@@ -31,15 +31,12 @@
             {% block base_content %}<!-- Overrited by children templates -->{% endblock %}
 
 		    <div class="footer">
-		        <p>&copy; {{ site.name }} 2014</p>
+		        <span>&copy; {{ site.name }} 2014</span><span class="bullet">&#8226;</span><span class="lang-chooser">{% language_chooser %}</span></div>
 		    </div>
         </div><!-- .container -->
         {% block jquery %}<script src="{{ STATIC_URL }}js/jquery-1.11.0.min.js"></script>{% endblock jquery %}
         {% render_block "js" %}<!--  Django CMS JS -->
         {% block base_js %}<!-- Overrited by children templates -->{% endblock %}
-        <script>
-            $('.text-muted').click(function() { alert('Welcome to ' + $( this ).html()); });
-        </script>
         {% bootstrap_javascript %}
         {% placeholder js %}<!-- User put SnippetPlugin here -->
     </body>

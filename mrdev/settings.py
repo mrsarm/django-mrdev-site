@@ -31,7 +31,7 @@ import os
 PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-gettext = lambda s: s
+from django.utils.translation import ugettext_lazy as _
 
 
 # Quick-start development settings - unsuitable for production
@@ -65,12 +65,14 @@ INSTALLED_APPS = (
     'menus',
     'south',
     'sekizai',
-    'cms.plugins.link',
-    'cms.plugins.snippet',
     'reversion',
+    'djangocms_link',
+    'djangocms_snippet',
+    'djangocms_style',
     'djangocms_text_ckeditor',
-    'cms.plugins.flash',
-    'cms.plugins.googlemap',
+    'djangocms_inherit',
+    #'djangocms_flash',
+    #'djangocms_googlemap',
 
     # Django-Filer
     'filer',
@@ -80,11 +82,6 @@ INSTALLED_APPS = (
     'cmsplugin_filer_image',
     'cmsplugin_filer_teaser',
     'cmsplugin_filer_video',
-
-    #'cms.plugins.file',
-    #'cms.plugins.picture',
-    #'cms.plugins.teaser',
-    #'cms.plugins.video',
 
     'bootstrap3',
     #'cmsplugin_contact',
@@ -153,8 +150,6 @@ DATABASES = {
     }
 }
 
-USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
@@ -179,21 +174,39 @@ STATICFILES_DIRS = (MEDIA_ROOT,)
 
 LANGUAGE_CODE = 'es-ar'
 
-TIME_ZONE = 'UTC'
+#USE_TZ = True  # Default False
+#TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Buenos_Aires'
 
 USE_I18N = True
 
 USE_L10N = True
 
 LANGUAGES = (
-    ('es', gettext('Spanish')),
-    ('en', gettext('English')),
+    ('es', _('Spanish')),
+    ('en', _('English')),
 )
 
-CMS_LANGUAGES = (
-    ('es', gettext('Spanish')),
-    ('en', gettext('English')),
-)
+CMS_LANGUAGES = {
+    1: [
+        {
+            'code': 'es',
+            'name': _('Spanish'),
+            'fallbacks': ['en'],
+        },
+        {
+            'code': 'en',
+            'name': _('English'),
+            'fallbacks': ['es'],
+        },
+    ],
+    'default': {
+        'fallbacks': ['es', 'en'],
+        'redirect_on_fallback':True,
+        'public': True,
+        'hide_untranslated': False,
+    }
+}
 
 LOCALE_INDEPENDENT_PATHS = (
     re.compile('^%s' % STATIC_URL),
@@ -213,28 +226,28 @@ TEMPLATE_DIRS = (
 )
 
 CMS_TEMPLATES = (
-    ('mrdev/bootstrap3/jumbotron/jumbotron-narrow-1.html', gettext('Bootstrap3 Jumbotron Narrow')),
-    ('mrdev/bootstrap3/jumbotron/jumbotron-narrow-2.html', gettext('Bootstrap3 Jumbotron Narrow 2 Columns')),
-    ('mrdev/bootstrap3/jumbotron/jumbotron-narrow-2-25-75.html', gettext('Bootstrap3 Jumbotron Narrow 2 Columns (25-75)')),
-    ('mrdev/bootstrap3/jumbotron/jumbotron-narrow-2-75-25.html', gettext('Bootstrap3 Jumbotron Narrow 2 Columns (75-25)')),
-    ('mrdev/bootstrap3/jumbotron/jumbotron-narrow-3.html', gettext('Bootstrap3 Jumbotron Narrow 3 Columns')),
+    ('mrdev/bootstrap3/jumbotron/jumbotron-narrow-1.html', _('Bootstrap3 Jumbotron Narrow')),
+    ('mrdev/bootstrap3/jumbotron/jumbotron-narrow-2.html', _('Bootstrap3 Jumbotron Narrow 2 Columns')),
+    ('mrdev/bootstrap3/jumbotron/jumbotron-narrow-2-25-75.html', _('Bootstrap3 Jumbotron Narrow 2 Columns (25-75)')),
+    ('mrdev/bootstrap3/jumbotron/jumbotron-narrow-2-75-25.html', _('Bootstrap3 Jumbotron Narrow 2 Columns (75-25)')),
+    ('mrdev/bootstrap3/jumbotron/jumbotron-narrow-3.html', _('Bootstrap3 Jumbotron Narrow 3 Columns')),
 )
 
 CMS_PLACEHOLDER_CONF = {
     'js': {
         'plugins': ('SnippetPlugin'),
-        'name': gettext("JavaScript"),
+        'name': _("JavaScript"),
     },
     'css': {
         'plugins': ('SnippetPlugin'),
-        'name': gettext("CSS Style"),
+        'name': _("CSS Style"),
     },
-    'top':    { 'name': gettext("Top"), },
-    'bottom': { 'name': gettext("Bottom"), },
-    'sidebar': { 'name': gettext("Sidebar"), },
-    'main':   { 'name': gettext("Main"), },
-    'main-2': { 'name': gettext("Main") + " 2", },
-    'main-3': { 'name': gettext("Main") + " 3", },
+    'top':    { 'name': _("Top"), },
+    'bottom': { 'name': _("Bottom"), },
+    'sidebar': { 'name': _("Sidebar"), },
+    'main':   { 'name': _("Main"), },
+    'main-2': { 'name': _("Main") + " 2", },
+    'main-3': { 'name': _("Main") + " 3", },
 }
 
 
