@@ -9,7 +9,7 @@
 #    It exposes the WSGI callable as a module-level variable named ``application``.
 #
 #    For more information on this file, see
-#    https://docs.djangoproject.com/en/1.5/howto/deployment/wsgi/
+#    https://docs.djangoproject.com/en/1.7/howto/deployment/wsgi/
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as

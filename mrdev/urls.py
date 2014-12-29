@@ -40,14 +40,15 @@ urlpatterns += i18n_patterns('',
     url(r'^', include('cms.urls')),
 )
 
-#if settings.DEBUG:
-#    urlpatterns = patterns('',
-#        url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
-#            {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
-#        #url(r'', include('django.contrib.staticfiles.urls')),
-#    ) + urlpatterns
+from filer import settings as filer_settings
 
-if settings.STATICFILES_IGNORE_DEBUG:
+if settings.DEBUG:
     urlpatterns = patterns('',
-            url(r'^%s(?P<path>.*)$' % re.escape(settings.STATIC_URL.lstrip('/')), 'staticsfiles_ignoredebug.views.serve'),
+        url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
+            {'document_root': settings.STATIC_ROOT, 'show_indexes': True}),
+        #url(r'', include('django.contrib.staticfiles.urls')),
+    ) + patterns('',
+        url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
+            {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
+        #url(r'', include('django.contrib.staticfiles.urls')),
     ) + urlpatterns

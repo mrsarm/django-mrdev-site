@@ -2,7 +2,7 @@
 mrdev/settings_*.py
 
 # Ignore site resources and data
-mrdev/static/filer_*
+mrdev/media/filer_*
 *.sqlite3
 *.log
 logfile*

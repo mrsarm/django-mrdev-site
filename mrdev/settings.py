@@ -31,7 +31,8 @@ import os
 PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-from django.utils.translation import ugettext_lazy as _
+#from django.utils.translation import ugettext_lazy as _
+_ = lambda s: s
 
 
 # Quick-start development settings - unsuitable for production
@@ -52,6 +53,7 @@ TEMPLATE_DEBUG = DEBUG
 
 INSTALLED_APPS = (
     'djangocms_admin_style',
+    'djangocms_text_ckeditor',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -63,28 +65,31 @@ INSTALLED_APPS = (
     'cms',
     'mptt',
     'menus',
-    'south',
     'sekizai',
     'reversion',
-    'djangocms_link',
-    'djangocms_snippet',
+    #'djangocms_link',
+    #'djangocms_snippet',
     'djangocms_style',
-    'djangocms_text_ckeditor',
+    'djangocms_column',
     'djangocms_inherit',
-    #'djangocms_flash',
-    #'djangocms_googlemap',
+    'djangocms_flash',
+    'djangocms_googlemap',
+    #'djangocms_teaser',
+    #'djangocms_video',
 
     # Django-Filer
     'filer',
     'easy_thumbnails',
     'cmsplugin_filer_file',
     'cmsplugin_filer_folder',
+    'cmsplugin_filer_link',
     'cmsplugin_filer_image',
     'cmsplugin_filer_teaser',
     'cmsplugin_filer_video',
 
     'bootstrap3',
     #'cmsplugin_contact',
+    'mrdev'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -106,10 +111,13 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.i18n',
+    'django.core.context_processors.debug',
     'django.core.context_processors.request',
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'cms.context_processors.media',
+    'django.core.context_processors.csrf',
+    'django.core.context_processors.tz',
     'sekizai.context_processors.sekizai',
     'common_context.context_processors.site',
     'common_context.context_processors.settings',
@@ -124,6 +132,8 @@ THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.filters',
 )
 
+THUMBNAIL_HIGH_RESOLUTION = True
+
 #FILER_IMAGE_USE_ICON=True
 
 # Django-Filer integration with djangocms-text-ckeditor
@@ -135,18 +145,18 @@ WSGI_APPLICATION = 'mrdev.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/1.6/ref/settings/#databases
+# https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        #'ENGINE': 'django.db.backends.sqlite3',
-        #'NAME': os.path.join(BASE_DIR, 'django_mrdev.sqlite3'),
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django_mrdev',
-        'USER': 'django',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'project.sqlite3'),
+        #'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        #'NAME': 'django_mrdev',
+        #'USER': 'django',
+        #'PASSWORD': 'postgres',
+        #'HOST': 'localhost',
+        #'PORT': '5432',
     }
 }
 
@@ -154,11 +164,11 @@ DATABASES = {
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-#STATIC_ROOT = os.path.join(PROJECT_PATH, "static")
+STATIC_ROOT = os.path.join(PROJECT_PATH, "static")
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(PROJECT_PATH, "static")
-#MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(PROJECT_PATH, "media")
+MEDIA_URL = "/media/"
 
 STATICFILES_IGNORE_DEBUG=True
 
@@ -167,12 +177,10 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
 )
 
-STATICFILES_DIRS = (MEDIA_ROOT,)
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'es-ar'
+LANGUAGE_CODE = 'es'
 
 #USE_TZ = True  # Default False
 #TIME_ZONE = 'UTC'
@@ -210,6 +218,7 @@ CMS_LANGUAGES = {
 
 LOCALE_INDEPENDENT_PATHS = (
     re.compile('^%s' % STATIC_URL),
+    re.compile('^%s' % MEDIA_URL),
 )
 
 # Language fallback ordering for each language
@@ -335,4 +344,30 @@ LOGGING = {
             'level': 'INFO',
         }
     }
+}
+
+MIGRATION_MODULES = {
+    'cms': 'cms.migrations_django',
+    'menus': 'menus.migrations_django',
+    'filer': 'filer.migrations_django',
+    'djangocms_text_ckeditor': 'djangocms_text_ckeditor.migrations_django',
+    'djangocms_column': 'djangocms_column.migrations_django',
+    #'djangocms_file': 'djangocms_file.migrations_django',
+    'djangocms_flash': 'djangocms_flash.migrations_django',
+    'djangocms_googlemap': 'djangocms_googlemap.migrations_django',
+    'djangocms_inherit': 'djangocms_inherit.migrations_django',
+    #'djangocms_link': 'djangocms_link.migrations_django',
+    #'djangocms_picture': 'djangocms_picture.migrations_django',
+    'djangocms_style': 'djangocms_style.migrations_django',
+    #'djangocms_teaser': 'djangocms_teaser.migrations_django',
+    #'djangocms_video': 'djangocms_video.migrations_django',
+    #'djangocms_snippet': 'djangocms_snippet.migrations_django',
+
+    'cmsplugin_filer_file': 'cmsplugin_filer_file.migrations_django',
+    'cmsplugin_filer_folder': 'cmsplugin_filer_folder.migrations_django',
+    'cmsplugin_filer_image': 'cmsplugin_filer_image.migrations_django',
+    'cmsplugin_filer_teaser': 'cmsplugin_filer_teaser.migrations_django',
+    'cmsplugin_filer_video': 'cmsplugin_filer_video.migrations_django',
+    'cmsplugin_filer_link': 'cmsplugin_filer_link.migrations_django',
+
 }

@@ -1,13 +1,14 @@
 MRDEV Django CMS Template Site
 ==============================
 
-Quickly setup the scaffolding for your *Django CMS App*.
+Quickly setup the scaffolding for your *Django CMS App*
+with *Django Filer* module.
 
 
 Features
 --------
 
-* All apps preconfigured ready to use.
+* All apps preconfigured ready to use
 * Bootstrap3 templates
 * Layouts
 
@@ -15,9 +16,9 @@ Features
 Requirements
 ------------
 
-* Django 1.6+
-* Django CMS 3+
-* Python 2.7+
+* Django 1.7+
+* Django CMS 3.0
+* Python 2.7 or 3.3+
 
 
 Notes
