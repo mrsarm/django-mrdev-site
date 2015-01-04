@@ -30,9 +30,10 @@
 
             {% block base_content %}<!-- Overrited by children templates -->{% endblock %}
 
-		    <div class="footer">
-		        <span>&copy; {{ site.name }} 2014</span><span class="bullet">&#8226;</span><span class="lang-chooser">{% language_chooser %}</span></div>
-		    </div>
+            <div class="footer">
+                <span class="copyright">&copy; {{ site.name }} 2014</span>
+                <ul class="lang-chooser">{% language_chooser %}</ul></div>
+            </div>
         </div><!-- .container -->
         {% block jquery %}<script src="{{ STATIC_URL }}js/jquery-1.11.0.min.js"></script>{% endblock jquery %}
         {% render_block "js" %}<!--  Django CMS JS -->
