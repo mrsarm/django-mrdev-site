@@ -24,11 +24,11 @@ Requirements
 Notes
 -----
 
-* When a template page change their layout, and a
-  placeholder is not displayed any more, but a
-  instance page have content in that holder,
+* When a template page changes their layout, and a
+  placeholder is not displayed any more, but an
+  instance page has content in that holder,
   you can change the "slot" in the ``cms_placeholder``
-  table (is not editable from Django Admin console).
+  table (it's not editable from Django Admin console).
 
 
 Authors
@@ -40,6 +40,6 @@ Authors
 Source Code and License
 -----------------------
 
-This sources are available in https://github.com/mrsarm/django-mrdev-site
+These sources are available in https://github.com/mrsarm/django-mrdev-site
 
-License (2014) AGPL-3 http://www.gnu.org/licenses/agpl.html
+License (2014-2015) LGPL-3 http://www.gnu.org/licenses/lgpl.txt

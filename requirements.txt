@@ -1,4 +1,4 @@
-# Tested only with Python 3.4
+# Tested with Python 2.7 and Python 3.4
 
 Django==1.7.1
 Pillow==2.6.1
@@ -28,12 +28,11 @@ html5lib==0.999
 pytz==2014.10
 requests==2.5.1
 six==1.8.0
-
-#Optional, recommended packages
-psycopg2>=2.5
-django-bootstrap3
-staticsfiles_ignoredebug
-django_common_context
+django_common_context>0.1.0
+django-bootstrap3>=5.0.3
 django-filer==0.9.8
 cmsplugin-filer==0.10.1
 easy_thumbnails==2.2
+
+# Optional, recommended packages
+#psycopg2>=2.5	# To work with PostgreSQL
