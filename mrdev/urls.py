@@ -40,8 +40,6 @@ urlpatterns += i18n_patterns('',
     url(r'^', include('cms.urls')),
 )
 
-from filer import settings as filer_settings
-
 if settings.DEBUG:
     urlpatterns = patterns('',
         url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
