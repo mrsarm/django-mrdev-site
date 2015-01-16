@@ -88,6 +88,8 @@ INSTALLED_APPS = (
     'cmsplugin_filer_teaser',
     'cmsplugin_filer_video',
 
+    'cmsplugin_filery',
+
     'bootstrap3',
     #'cmsplugin_contact',
     'mrdev'
