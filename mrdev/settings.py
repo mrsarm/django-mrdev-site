@@ -54,6 +54,7 @@ TEMPLATE_DEBUG = DEBUG
 INSTALLED_APPS = (
     'djangocms_admin_style',
     'djangocms_text_ckeditor',
+    'admin_shortcuts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -345,6 +346,29 @@ LOGGING = {
         }
     }
 }
+
+ADMIN_SHORTCUTS = [
+    {
+        'shortcuts': [
+            {
+                'url': '/',
+                'open_new_window': True,
+            },
+            {
+                'url_name': 'admin:cms_page_changelist',
+                'title': _('Pages'),
+            },
+            {
+                'url_name': 'admin:filer_folder_changelist',
+                'title': _('Files'),
+            },
+            {
+                'url_name': 'admin:auth_user_changelist',
+                'title': _('Users'),
+            },
+        ]
+    },
+]
 
 MIGRATION_MODULES = {
     'cms': 'cms.migrations_django',
