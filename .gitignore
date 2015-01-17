@@ -6,6 +6,7 @@ mrdev/media/filer_*
 *.sqlite3
 *.log
 logfile*
+mrdev/static/*
 
 # Ignore byte compiled files
 *.py[co]
