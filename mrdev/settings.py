@@ -89,6 +89,7 @@ INSTALLED_APPS = (
     'cmsplugin_filer_video',
 
     'cmsplugin_filery',
+    'cmsplugin_nivoslider',
 
     'bootstrap3',
     #'cmsplugin_contact',
@@ -129,6 +130,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 THUMBNAIL_PROCESSORS = (
     # Django-Filer processors
     'easy_thumbnails.processors.colorspace',
+    'cmsplugin_nivoslider.thumbnail_processors.pad_image',
     'easy_thumbnails.processors.autocrop',
     #'easy_thumbnails.processors.scale_and_crop',
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
