@@ -264,6 +264,11 @@ CMS_PLACEHOLDER_CONF = {
     'main-3': { 'name': _("Main") + " 3", },
 }
 
+BOOTSTRAP3 = {
+    # The Bootstrap base URL
+    'base_url': '/static/bootstrap3/readable/',
+}
+
 
 #CMS_UNIHANDECODE_HOST=True
 #CMS_UNIHANDECODE_VERSION=True

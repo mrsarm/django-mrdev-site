@@ -29,7 +29,7 @@ pytz==2014.10
 requests==2.5.1
 six==1.8.0
 django_common_context>0.1.0
-django-bootstrap3>=5.0.3
+django-bootstrap3==5.4.0
 django-filer==0.9.8
 cmsplugin-filer==0.10.1
 easy_thumbnails==2.2
