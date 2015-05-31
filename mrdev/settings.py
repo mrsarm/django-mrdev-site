@@ -88,8 +88,8 @@ INSTALLED_APPS = (
     'cmsplugin_filer_teaser',
     'cmsplugin_filer_video',
 
-    'cmsplugin_filery',
-    'cmsplugin_nivoslider',
+    #'cmsplugin_filery',
+    #'cmsplugin_nivoslider',
 
     'bootstrap3',
     #'cmsplugin_contact',
@@ -130,7 +130,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 THUMBNAIL_PROCESSORS = (
     # Django-Filer processors
     'easy_thumbnails.processors.colorspace',
-    'cmsplugin_nivoslider.thumbnail_processors.pad_image',
+    #'cmsplugin_nivoslider.thumbnail_processors.pad_image',
     'easy_thumbnails.processors.autocrop',
     #'easy_thumbnails.processors.scale_and_crop',
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
@@ -265,8 +265,9 @@ CMS_PLACEHOLDER_CONF = {
 }
 
 BOOTSTRAP3 = {
-    # The Bootstrap base URL
-    'base_url': '/static/bootstrap3/readable/',
+    'base_url': '/static/bootstrap3/',
+    'css_url': '/static/bootstrap3/sandstone/bootstrap.min.css',
+    'javascript_url': '/static/bootstrap3/js/bootstrap.min.js',
 }
 
 
@@ -402,5 +403,4 @@ MIGRATION_MODULES = {
     'cmsplugin_filer_teaser': 'cmsplugin_filer_teaser.migrations_django',
     'cmsplugin_filer_video': 'cmsplugin_filer_video.migrations_django',
     'cmsplugin_filer_link': 'cmsplugin_filer_link.migrations_django',
-
 }
