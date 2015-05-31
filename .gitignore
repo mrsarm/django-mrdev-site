@@ -17,7 +17,9 @@ build
 *.egg-info
 .directory
 
-# Ignore Eclipse IDE files
+# Ignore IDE files
 .settings
 .project
 .pydevproject
+.idea
+*.iml
