@@ -12,7 +12,7 @@
         <![endif]-->
         {% render_block "css" %}<!--  Django CMS CSS -->
 	    {% bootstrap_css %}
-	    <link href="{{ STATIC_URL }}css/bootstrap3/base.css" rel="stylesheet">
+	    <link href="{{ STATIC_URL }}bootstrap3/base.css" rel="stylesheet">
 	    {% block base_head %}<!-- Overrited by children templates -->{% endblock %}
     </head>
 
@@ -37,6 +37,8 @@
                     </div>
                 </div>
 	        </div>
+            <div class="navbar-fixed-margin">&nbsp;</div>
+
 	        {% bootstrap_messages %}
 
             {% block base_content %}<!-- Overrited by children templates -->{% endblock %}
