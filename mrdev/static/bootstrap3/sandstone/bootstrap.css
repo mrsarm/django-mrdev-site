@@ -6641,7 +6641,7 @@ input:focus,
   color: #98978b;
 }
 .nav-pills li > a {
-  border: 1px solid transparent;
+  border-radius: 0px;
 }
 .nav-pills li.active > a,
 .nav-pills li > a:hover {

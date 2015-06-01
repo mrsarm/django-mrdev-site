@@ -15,7 +15,7 @@
 
 .navbar {
   .nav > li > a {
-    .sandstone;
+    @extend .sandstone;
   }
 
   &-form input,
@@ -28,7 +28,7 @@
 
 .btn {
   border: none;
-  .sandstone;
+  @extend .sandstone;
 
   &:hover {
     border-color: transparent;
@@ -40,7 +40,7 @@
 
   &-default {
     &:hover {
-      background-color: @navbar-default-link-active-bg;
+      background-color: $navbar-default-link-active-bg;
     }
   }
 }
@@ -53,51 +53,51 @@
 
 input,
 .form-control {
-  .box-shadow(none);
+  @include box-shadow(none);
 
   &:focus {
-    border-color: @input-border;
-    .box-shadow(none);
+    border-color: $input-border;
+    @include box-shadow(none);
   }
 }
 
 // Navs =======================================================================
 
 .nav {
-  .sandstone;
+  @extend .sandstone;
 
   .open > a,
   .open > a:hover,
   .open > a:focus {
-    border-color: @gray-light;
+    border-color: $gray-light;
   }
 }
 
 .nav-tabs {
 
   & > li > a {
-    background-color: @gray-lighter;
-    border-color: @nav-tabs-border-color;
-    color: @gray;
+    background-color: $gray-lighter;
+    border-color: $nav-tabs-border-color;
+    color: $gray;
   }
 
   > li.disabled > a:hover {
-    background-color: @gray-lighter;
+    background-color: $gray-lighter;
   }
 }
 
 .nav-pills {
   a {
-    color: @gray;
+    color: $gray;
   }
 
   li > a {
-    border-radius: 0px;
+    border: 1px solid transparent;
   }
 
   li.active > a,
   li > a:hover {
-    border-color: @gray-light;
+    border-color: $gray-light;
   }
 
   li.disabled > a {
@@ -106,30 +106,30 @@ input,
 }
 
 .breadcrumb {
-  .sandstone;
+  @extend .sandstone;
 
-  border: 1px solid @gray-light;
+  border: 1px solid $gray-light;
 
   a {
-    color: @gray;
+    color: $gray;
   }
 }
 
 .pagination {
-  .sandstone;
+  @extend .sandstone;
 }
 
 .pager {
-  .sandstone;
+  @extend .sandstone;
 
   li > a {
-    color: @gray;
+    color: $gray;
   }
 }
 
 .dropdown-menu {
   & > li > a {
-    .sandstone;
+    @extend .sandstone;
   }
 }
 
@@ -144,18 +144,18 @@ input,
 }
 
 .tooltip {
-  .sandstone;
+  @extend .sandstone;
 }
 
 // Progress bars ==============================================================
 
 .progress {
   border-radius: 10px;
-  background-color: @gray-light;
-  .box-shadow(none);
+  background-color: $gray-light;
+  @include box-shadow(none);
 
   &-bar {
-    .box-shadow(none);
+    @include box-shadow(none);
   }
 }
 
@@ -168,27 +168,27 @@ input,
 }
 
 .well {
-  .box-shadow(none);
+  @include box-shadow(none);
 }
 
 .panel {
-  .box-shadow(none);
+  @include box-shadow(none);
 
   .panel-heading,
   .panel-title {
-    .sandstone;
+    @extend .sandstone;
     color: #fff;
   }
 
   .panel-footer {
-    .sandstone;
+    @extend .sandstone;
   }
 
   &-default {
     .panel-heading,
     .panel-title,
     .panel-footer {
-      color: @gray;
+      color: $gray;
     }
   }
 }
