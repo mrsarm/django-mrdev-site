@@ -265,7 +265,6 @@ CMS_PLACEHOLDER_CONF = {
 }
 
 BOOTSTRAP3 = {
-    'base_url': '/static/bootstrap3/',
     'css_url': '/static/bootstrap3/sandstone/bootstrap.min.css',
     'javascript_url': '/static/bootstrap3/js/bootstrap.min.js',
 }
