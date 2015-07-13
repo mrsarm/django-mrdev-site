@@ -16,8 +16,8 @@ Features
 Requirements
 ------------
 
-* Django 1.7+
-* Django CMS 3.0
+* Django 1.8+
+* Django CMS 3.1
 * Python 2.7 or 3.3+
 
 

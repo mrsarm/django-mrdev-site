@@ -64,9 +64,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
     'cms',
-    'mptt',
     'menus',
     'sekizai',
+    'treebeard',
     'reversion',
     #'djangocms_link',
     #'djangocms_snippet',
@@ -74,7 +74,7 @@ INSTALLED_APPS = (
     'djangocms_column',
     'djangocms_inherit',
     'djangocms_flash',
-    'djangocms_googlemap',
+    #'djangocms_googlemap',
     #'djangocms_teaser',
     #'djangocms_video',
 
@@ -96,17 +96,45 @@ INSTALLED_APPS = (
     'mrdev'
 )
 
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'mrdev', 'templates'),],
+        'OPTIONS': {
+            'context_processors': [
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+                'django.core.context_processors.i18n',
+                'django.core.context_processors.debug',
+                'django.core.context_processors.request',
+                'django.core.context_processors.media',
+                'django.core.context_processors.csrf',
+                'django.core.context_processors.tz',
+                'sekizai.context_processors.sekizai',
+                'django.core.context_processors.static',
+                'cms.context_processors.cms_settings'
+            ],
+            'loaders': [
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+                'django.template.loaders.eggs.Loader'
+            ],
+        },
+    },
+]
+
+
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    #'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.locale.LocaleMiddleware',
-    'django.middleware.doc.XViewMiddleware',
+    'django.contrib.admindocs.middleware.XViewMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'cms.middleware.page.CurrentPageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'cms.middleware.user.CurrentUserMiddleware',
+    'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
     'cms.middleware.language.LanguageCookieMiddleware',
 )
@@ -367,10 +395,10 @@ ADMIN_SHORTCUTS = [
                 'url_name': 'admin:cms_page_changelist',
                 'title': _('Pages'),
             },
-            {
-                'url_name': 'admin:filer_folder_changelist',
-                'title': _('Files'),
-            },
+            #{
+            #    'url_name': 'admin:filer_folder_changelist',
+            #    'title': _('Files'),
+            #},
             {
                 'url_name': 'admin:auth_user_changelist',
                 'title': _('Users'),
@@ -380,14 +408,11 @@ ADMIN_SHORTCUTS = [
 ]
 
 MIGRATION_MODULES = {
-    'cms': 'cms.migrations_django',
-    'menus': 'menus.migrations_django',
     'filer': 'filer.migrations_django',
-    'djangocms_text_ckeditor': 'djangocms_text_ckeditor.migrations_django',
     'djangocms_column': 'djangocms_column.migrations_django',
     #'djangocms_file': 'djangocms_file.migrations_django',
     'djangocms_flash': 'djangocms_flash.migrations_django',
-    'djangocms_googlemap': 'djangocms_googlemap.migrations_django',
+    #'djangocms_googlemap': 'djangocms_googlemap.migrations_django',
     'djangocms_inherit': 'djangocms_inherit.migrations_django',
     #'djangocms_link': 'djangocms_link.migrations_django',
     #'djangocms_picture': 'djangocms_picture.migrations_django',
@@ -398,8 +423,8 @@ MIGRATION_MODULES = {
 
     'cmsplugin_filer_file': 'cmsplugin_filer_file.migrations_django',
     'cmsplugin_filer_folder': 'cmsplugin_filer_folder.migrations_django',
+    'cmsplugin_filer_link': 'cmsplugin_filer_link.migrations_django',
     'cmsplugin_filer_image': 'cmsplugin_filer_image.migrations_django',
     'cmsplugin_filer_teaser': 'cmsplugin_filer_teaser.migrations_django',
     'cmsplugin_filer_video': 'cmsplugin_filer_video.migrations_django',
-    'cmsplugin_filer_link': 'cmsplugin_filer_link.migrations_django',
 }
