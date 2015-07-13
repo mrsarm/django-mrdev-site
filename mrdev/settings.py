@@ -7,7 +7,7 @@
 #    Django settings for mrdev project.
 #
 #    For more information on this file, see
-#    https://docs.djangoproject.com/en/1.5/topics/settings/
+#    https://docs.djangoproject.com/en/1.8/topics/settings/
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -36,7 +36,7 @@ _ = lambda s: s
 
 
 # Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
+# See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'ffeettyy66pp@@111111111111111111112222222222!!!!x@'
@@ -81,12 +81,12 @@ INSTALLED_APPS = (
     # Django-Filer
     'filer',
     'easy_thumbnails',
-    'cmsplugin_filer_file',
-    'cmsplugin_filer_folder',
-    'cmsplugin_filer_link',
-    'cmsplugin_filer_image',
-    'cmsplugin_filer_teaser',
-    'cmsplugin_filer_video',
+    #'cmsplugin_filer_file',
+    #'cmsplugin_filer_folder',
+    #'cmsplugin_filer_link',
+    #'cmsplugin_filer_image',
+    #'cmsplugin_filer_teaser',
+    #'cmsplugin_filer_video',
 
     #'cmsplugin_filery',
     #'cmsplugin_nivoslider',
@@ -130,7 +130,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.locale.LocaleMiddleware',
-    'django.contrib.admindocs.middleware.XViewMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'cms.middleware.user.CurrentUserMiddleware',
@@ -178,7 +177,7 @@ WSGI_APPLICATION = 'mrdev.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/1.7/ref/settings/#databases
+# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 DATABASES = {
     'default': {
@@ -195,7 +194,7 @@ DATABASES = {
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.6/howto/static-files/
+# https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_ROOT = os.path.join(PROJECT_PATH, "static")
 STATIC_URL = '/static/'
@@ -211,7 +210,7 @@ STATICFILES_FINDERS = (
 )
 
 # Internationalization
-# https://docs.djangoproject.com/en/1.6/topics/i18n/
+# https://docs.djangoproject.com/en/1.8/topics/i18n/
 
 LANGUAGE_CODE = 'es'
 
@@ -324,7 +323,7 @@ DEFAULT_FROM_EMAIL = 'No-Reply <userxxx@gmail.com>'
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
-# See http://docs.djangoproject.com/en/dev/topics/logging for
+# See http://docs.djangoproject.com/en/1.8/topics/logging for
 # more details on how to customize your logging configuration.
 LOGGING = {
     'version': 1,
@@ -395,10 +394,10 @@ ADMIN_SHORTCUTS = [
                 'url_name': 'admin:cms_page_changelist',
                 'title': _('Pages'),
             },
-            #{
-            #    'url_name': 'admin:filer_folder_changelist',
-            #    'title': _('Files'),
-            #},
+            {
+                'url_name': 'admin:filer_folder_changelist',
+                'title': _('Files'),
+            },
             {
                 'url_name': 'admin:auth_user_changelist',
                 'title': _('Users'),
@@ -421,10 +420,10 @@ MIGRATION_MODULES = {
     #'djangocms_video': 'djangocms_video.migrations_django',
     #'djangocms_snippet': 'djangocms_snippet.migrations_django',
 
-    'cmsplugin_filer_file': 'cmsplugin_filer_file.migrations_django',
-    'cmsplugin_filer_folder': 'cmsplugin_filer_folder.migrations_django',
-    'cmsplugin_filer_link': 'cmsplugin_filer_link.migrations_django',
-    'cmsplugin_filer_image': 'cmsplugin_filer_image.migrations_django',
-    'cmsplugin_filer_teaser': 'cmsplugin_filer_teaser.migrations_django',
-    'cmsplugin_filer_video': 'cmsplugin_filer_video.migrations_django',
+    #'cmsplugin_filer_file': 'cmsplugin_filer_file.migrations_django',
+    #'cmsplugin_filer_folder': 'cmsplugin_filer_folder.migrations_django',
+    #'cmsplugin_filer_link': 'cmsplugin_filer_link.migrations_django',
+    #'cmsplugin_filer_image': 'cmsplugin_filer_image.migrations_django',
+    #'cmsplugin_filer_teaser': 'cmsplugin_filer_teaser.migrations_django',
+    #'cmsplugin_filer_video': 'cmsplugin_filer_video.migrations_django',
 }
