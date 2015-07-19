@@ -112,7 +112,9 @@ TEMPLATES = [
                 'django.core.context_processors.tz',
                 'sekizai.context_processors.sekizai',
                 'django.core.context_processors.static',
-                'cms.context_processors.cms_settings'
+                'cms.context_processors.cms_settings',
+                'common_context.context_processors.site',
+                'common_context.context_processors.settings',
             ],
             'loaders': [
                 'django.template.loaders.filesystem.Loader',
@@ -136,22 +138,6 @@ MIDDLEWARE_CLASSES = (
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
     'cms.middleware.language.LanguageCookieMiddleware',
-)
-
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'django.contrib.messages.context_processors.messages',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.debug',
-    'django.core.context_processors.request',
-    'django.core.context_processors.media',
-    'django.core.context_processors.static',
-    'cms.context_processors.media',
-    'django.core.context_processors.csrf',
-    'django.core.context_processors.tz',
-    'sekizai.context_processors.sekizai',
-    'common_context.context_processors.site',
-    'common_context.context_processors.settings',
 )
 
 THUMBNAIL_PROCESSORS = (
@@ -259,12 +245,6 @@ LOCALE_INDEPENDENT_PATHS = (
 #CMS_LANGUAGE_CONF = {
 #    'en': ['es'],
 #}
-
-TEMPLATE_DIRS = (
-    # The docs say it should be absolute path: PROJECT_PATH is precisely one.
-    # Life is wonderful!
-    os.path.join(PROJECT_PATH, "templates"),
-)
 
 CMS_TEMPLATES = (
     ('mrdev/bootstrap3/jumbotron/jumbotron-narrow-1.html', _('Bootstrap3 Jumbotron Narrow')),

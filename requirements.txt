@@ -49,6 +49,7 @@ easy_thumbnails==2.2
 django-admin-shortcuts==1.2.6
 cmsplugin-filery==1.0.1   # Not launched yet, compile from sources, or change to ==1.0.1 with Python 2.7
 cmsplugin-nivoslider==0.5.9
+django_common_context==0.1.0
 
 # Optional, recommended packages
 #psycopg2==2.6.1	# To work with PostgreSQL
