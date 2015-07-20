@@ -8,9 +8,10 @@ with *Django Filer* module.
 Features
 --------
 
-* All apps preconfigured ready to use
-* Bootstrap3 templates
-* Layouts
+* All apps preconfigured ready to use.
+* Bootstrap3 templates (with
+  `Bootswatch <mrdev/static/bootstrap3/README.md>`_ themes).
+* Layouts.
 
 
 Requirements
