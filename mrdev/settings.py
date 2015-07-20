@@ -271,8 +271,12 @@ CMS_PLACEHOLDER_CONF = {
     'main-3': { 'name': _("Main") + " 3", },
 }
 
+# Bootswatch Theme (Bootstrap3 CSS Template)
+# Choose one from ``mrdev/static/bootstrap3/`` theme folder names
+BOOTSWATCH_THEME = 'sandstone'
+
 BOOTSTRAP3 = {
-    'css_url': '/static/bootstrap3/sandstone/bootstrap.min.css',
+    'css_url': '/static/bootstrap3/' + BOOTSWATCH_THEME + '/bootstrap.min.css',
     'javascript_url': '/static/bootstrap3/js/bootstrap.min.js',
 }
 

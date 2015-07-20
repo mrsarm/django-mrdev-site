@@ -1,0 +1,51 @@
+.container .row-top, .container .row-bottom {
+    margin-top: 10px; margin-bottom: 0;
+}
+
+.row h1:first-child {
+    margin-top: 0px;
+}
+
+.nav-pills > li.selected > a,
+.nav-pills > li.selected > a:hover,
+.nav-pills > li.selected > a:focus {
+  /*color: #ffffff;
+  /background-color: #393a35;*/
+}
+
+.navbar-fixed-margin {
+    margin-top: 40px;
+}
+
+.bullet {
+    padding: 0px 10px;
+}
+
+.footer {
+	overflow: hidden;
+}
+
+ul.lang-chooser {
+    list-style: none;
+    float: right;
+}
+
+ul.lang-chooser li {
+    float: right;
+}
+
+ul.lang-chooser li.active a {
+    font-weight: bold;
+    color: gray;
+}
+
+ul.lang-chooser li:before {
+    content: '| ';
+    display: block;
+    float: left;
+}
+
+ul.lang-chooser a {
+    display: block;
+    padding: 0px 10px;
+}
