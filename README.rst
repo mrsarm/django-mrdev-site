@@ -1,8 +1,8 @@
 MRDEV Django CMS Template Site
 ==============================
 
-Quickly setup the scaffolding for your *Django CMS App*
-with *Django Filer* module.
+Quickly setup the scaffolding for your `Django CMS <http://www.django-cms.org>`_
+App with `Django Filer <https://github.com/stefanfoulis/django-filer>`_ module.
 
 
 Features
