@@ -299,6 +299,10 @@ EMAIL_REPPLY = ''
 
 DEFAULT_FROM_EMAIL = 'No-Reply <userxxx@gmail.com>'
 
+if DEBUG:
+    # Console email backend
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
